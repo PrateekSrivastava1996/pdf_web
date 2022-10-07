@@ -171,19 +171,19 @@ const SectionPage = () => {
               Customers also purchased
             </h2>
 
-            <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
+            <div className="mt-6 grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
               {products.map((product) => (
                 <div key={product.id} className="group relative">
-                  <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+                  <div className="min-h-80 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                     <img
                       src={product.imageSrc}
                       alt={product.imageAlt}
-                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                      className="h-full w-full object-cover object-center lg:h-full lg:w-full xl:h-full xl:w-full 2xl:h-full 2xl:w-full"
                     />
                   </div>
-                  <div className="mt-4 flex justify-between">
+                  <div className="mt-4 flex justify-between w-[70%]">
                     <div>
-                      <h3 className="text-sm text-gray-700">
+                      <h3 className="text-sm text-gray-700 ">
                         <a href={product.href}>
                           <span
                             aria-hidden="true"
