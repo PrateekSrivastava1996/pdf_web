@@ -2,7 +2,7 @@ import React from "react";
 
 const MainBtnPage = () => {
   return (
-    <div className="flex flex-row justify-center mt-[50px] mb-[50px] ">
+    <div className="flex flex-row justify-center pt-[50px] pb-[50px]  bg-slate-700">
       <div className=" grid grid-cols-1 w-full pr-[20px]  pl-[20px] gap-y-10 gap-x-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 ">
         <button
           type="button"

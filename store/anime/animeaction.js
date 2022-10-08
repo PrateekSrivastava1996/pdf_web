@@ -17,7 +17,8 @@ import {
   WATCHANIME,
   SEARCHANIME,
   SEARCHLODER,
-  GENERCE
+  GENERCE,
+  TOPAIRLOADING
 } from "./animeConstant";
 import Swal from "sweetalert2";
 
@@ -30,13 +31,13 @@ const config = {
 export const topAirAction = () => async (dispatch) => {
   try {
     dispatch({
-      type: LOADING,
+      type: TOPAIRLOADING,
     });
     let res = await axios.get(`/top-airing`);
     const slicedArray = res?.data?.slice(0, 3);
     dispatch({
       type: TOPAIRTHEE,
-      paylode: slicedArray,
+      payload: slicedArray,
     });
   } catch (error) {
     console.log(error);
@@ -52,7 +53,7 @@ export const topAirCouusel = () => async (dispatch) => {
     const slicedArray = res?.data?.slice(0, 10);
     dispatch({
       type: TOPAIRTEN,
-      paylode: slicedArray,
+      payload: slicedArray,
     });
   } catch (error) {
     console.log(error);
@@ -67,7 +68,7 @@ export const topAirActionPagewise = (page) => async (dispatch) => {
     let res = await axios.get(`/top-airing/${page}`);
     dispatch({
       type: TOPAIR,
-      paylode: res.data,
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
@@ -83,7 +84,7 @@ export const recentJapTen = () => async (dispatch) => {
     const slicedArray = res?.data?.slice(0, 10);
     dispatch({
       type: RECENTTENJAP,
-      paylode: slicedArray,
+      payload: slicedArray,
     });
   } catch (error) {
     console.log(error);
@@ -98,7 +99,7 @@ export const recentJapAll = (page) => async (dispatch) => {
     let res = await axios.get(`/recent-release/?type=1&page=${page}`);
     dispatch({
       type: RECENTALLJAP,
-      paylode: res.data,
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
@@ -114,7 +115,7 @@ export const recentDubTen = () => async (dispatch) => {
     const slicedArray = res?.data?.slice(0, 10);
     dispatch({
       type: RECENTTENDUB,
-      paylode: slicedArray,
+      payload: slicedArray,
     });
   } catch (error) {
     console.log(error);
@@ -129,7 +130,7 @@ export const recentDubAll = (page) => async (dispatch) => {
     let res = await axios.get(`/recent-release/?type=2&page=${page}`);
     dispatch({
       type: RECENTALLDUB,
-      paylode: res.data,
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
@@ -146,7 +147,7 @@ export const recentChTen = () => async (dispatch) => {
     const slicedArray = res?.data?.slice(0, 10);
     dispatch({
       type: RECENTTENCH,
-      paylode: slicedArray,
+      payload: slicedArray,
     });
   } catch (error) {
     console.log(error);
@@ -161,13 +162,12 @@ export const recentChAll = (page) => async (dispatch) => {
     let res = await axios.get(`/recent-release/?type=3&page=${page}`);
     dispatch({
       type: RECENTALLCH,
-      paylode: res.data,
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
   }
 };
-
 
 export const moviesTen = () => async (dispatch) => {
   try {
@@ -175,10 +175,10 @@ export const moviesTen = () => async (dispatch) => {
       type: LOADING,
     });
     let res = await axios.get(`/anime-movies/?page=1`);
-    const slicedArray = res?.data?.slice(0, 6);
+    const slicedArray = res?.data?.slice(0, 3);
     dispatch({
       type: MOVIESTEN,
-      paylode: slicedArray,
+      payload: slicedArray,
     });
   } catch (error) {
     console.log(error);
@@ -193,7 +193,7 @@ export const moviesAll = (page) => async (dispatch) => {
     let res = await axios.get(`/anime-movies/?page=${page}`);
     dispatch({
       type: MOVIESALL,
-      paylode: res.data,
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
@@ -205,10 +205,10 @@ export const popularTen = () => async (dispatch) => {
       type: LOADING,
     });
     let res = await axios.get(`/popular/?page=1`);
-    const slicedArray = res?.data?.slice(0, 6);
+    const slicedArray = res?.data?.slice(0, 3);
     dispatch({
       type: POPULARTEN,
-      paylode: slicedArray,
+      payload: slicedArray,
     });
   } catch (error) {
     console.log(error);
@@ -223,13 +223,12 @@ export const popularAll = (page) => async (dispatch) => {
     let res = await axios.get(`/popular/?page=${page}`);
     dispatch({
       type: PAPULARALL,
-      paylode: res.data,
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
   }
 };
-
 
 export const animeDeatail = (animeId) => async (dispatch) => {
   try {
@@ -239,7 +238,7 @@ export const animeDeatail = (animeId) => async (dispatch) => {
     let res = await axios.get(`/anime-details/${animeId}`);
     dispatch({
       type: ANIMEDETAIL,
-      paylode: res.data,
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
@@ -255,7 +254,7 @@ export const watchAnime = (episodeId) => async (dispatch) => {
     let res = await axios.get(`/vidcdn/watch/${episodeId}`);
     dispatch({
       type: WATCHANIME,
-      paylode: res.data,
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
@@ -270,7 +269,7 @@ export const searchAnime = (text) => async (dispatch) => {
     let res = await axios.get(`/search?keyw=${text}`);
     dispatch({
       type: SEARCHANIME,
-      paylode: res.data,
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
@@ -296,7 +295,7 @@ export const genereSearch = (name) => async (dispatch) => {
     let res = await axios.get(`/genre/${name}`);
     dispatch({
       type: GENERCE,
-      paylode: res.data,
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);

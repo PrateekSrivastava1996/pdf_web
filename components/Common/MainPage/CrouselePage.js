@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useDispatch, useSelector } from "react-redux";
+import { topAirCouusel } from "../../../store/anime/animeaction";
 
 const responsive = {
   desktop: {
@@ -20,8 +23,77 @@ const responsive = {
 };
 
 const CrouselePage = () => {
+  const dispatch = useDispatch();
+  const selector = useSelector((pre) => pre.anime);
+  const [data, setData] = useState([]);
+
+  let demoEpisdoe = [
+    {
+      animeId: "uzaki-chan-wa-asobitai-double",
+      animeImg:
+        "https://gogocdn.net/cover/uzaki-chan-wa-asobitai-double-1664394785.png",
+      animeTitle: "Uzaki-chan wa Asobitai! Double",
+      animeUrl:
+        "https://gogoanime.film///category/uzaki-chan-wa-asobitai-double",
+      genres: ["Comedy", "Ecchi", "Romantic Subtext"],
+      latestEp: "Episode 1",
+    },
+    {
+      animeId: "uzaki-chan-wa-asobitai-double",
+      animeImg:
+        "https://gogocdn.net/cover/uzaki-chan-wa-asobitai-double-1664394785.png",
+      animeTitle: "Uzaki-chan wa Asobitai! Double",
+      animeUrl:
+        "https://gogoanime.film///category/uzaki-chan-wa-asobitai-double",
+      genres: ["Comedy", "Ecchi", "Romantic Subtext"],
+      latestEp: "Episode 1",
+    },
+    {
+      animeId: "uzaki-chan-wa-asobitai-double",
+      animeImg:
+        "https://gogocdn.net/cover/uzaki-chan-wa-asobitai-double-1664394785.png",
+      animeTitle: "Uzaki-chan wa Asobitai! Double",
+      animeUrl:
+        "https://gogoanime.film///category/uzaki-chan-wa-asobitai-double",
+      genres: ["Comedy", "Ecchi", "Romantic Subtext"],
+      latestEp: "Episode 1",
+    },
+    {
+      animeId: "uzaki-chan-wa-asobitai-double",
+      animeImg:
+        "https://gogocdn.net/cover/uzaki-chan-wa-asobitai-double-1664394785.png",
+      animeTitle: "Uzaki-chan wa Asobitai! Double",
+      animeUrl:
+        "https://gogoanime.film///category/uzaki-chan-wa-asobitai-double",
+      genres: ["Comedy", "Ecchi", "Romantic Subtext"],
+      latestEp: "Episode 1",
+    },
+    {
+      animeId: "uzaki-chan-wa-asobitai-double",
+      animeImg:
+        "https://gogocdn.net/cover/uzaki-chan-wa-asobitai-double-1664394785.png",
+      animeTitle: "Uzaki-chan wa Asobitai! Double",
+      animeUrl:
+        "https://gogoanime.film///category/uzaki-chan-wa-asobitai-double",
+      genres: ["Comedy", "Ecchi", "Romantic Subtext"],
+      latestEp: "Episode 1",
+    },
+    
+  ];
+
+
+  useEffect(() => {
+    dispatch(topAirCouusel());
+  }, []);
+
+  useEffect(() => {
+
+    console.log('qq',selector.TopAirTen)
+    setData(selector.TopAirTen || demoEpisdoe)
+
+  }, [selector]);
   return (
-    <div className="w-full mr-[10px] ml-[10px] mt-[30px]">
+    <div className="w-full pr-[10px] pl-[10px] pt-[30px] bg-slate-700">
       <Carousel
         swipeable={true}
         draggable={false}
@@ -40,7 +112,7 @@ const CrouselePage = () => {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="max-w-sm bg-white rounded-lg border  border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <img
               class="rounded-t-lg"

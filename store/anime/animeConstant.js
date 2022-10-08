@@ -1,6 +1,7 @@
 export const LOADING = "LOADING";
 
 export const TOPAIRTHEE ='TOPAIRTHEE'
+export const TOPAIRLOADING="TOPAIRLOADING"
 export const TOPAIR ='TOPAIR'
 export const TOPAIRTEN ='TOPAIRTEN'
 

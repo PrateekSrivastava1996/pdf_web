@@ -18,10 +18,12 @@ import {
   SEARCHANIME,
   SEARCHLODER,
   GENERCE,
+  TOPAIRLOADING
 } from "./animeConstant";
 const initialState = {
   loading: false,
   AirThree: [],
+  airTheeLoading:true,
   TopAir: [],
   TopAirTen: [],
   japten: [],
@@ -50,10 +52,15 @@ export const AnimeReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       };
+      case TOPAIRLOADING:
+        return {
+          ...state,
+          airTheeLoading: true,
+        };
     case TOPAIRTHEE:
       return {
         ...state,
-        loading: false,
+        airTheeLoading: false,
         AirThree: payload,
       };
     case TOPAIR:
