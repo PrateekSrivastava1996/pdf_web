@@ -10,9 +10,12 @@ import {
 } from "../../../store/anime/animeaction";
 import { Pagination } from "antd";
 import { Audio } from "react-loader-spinner";
+import { useRouter } from 'next/router'
+
 
 const SectionPage = ({ id, type }) => {
   const dispatch = useDispatch();
+  const router = useRouter()
   const selector = useSelector((pre) => pre.anime);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
@@ -112,6 +115,10 @@ const SectionPage = ({ id, type }) => {
       dispatch(topAirActionPagewise(pageNo));
     }
   };
+
+  const handleClick=(animeid)=>{
+    router.push(`/watch/${animeid}`)
+  }
   return (
     <>
       <div className="bg-white pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
@@ -138,7 +145,7 @@ const SectionPage = ({ id, type }) => {
             ) : (
               <>
                 {data.map((product) => (
-                  <div key={product.id} className="group relative">
+                  <div key={product.id} className="group relative" onClick={()=>handleClick(product.animeId)}>
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                       <img
                         src={product.animeImg}

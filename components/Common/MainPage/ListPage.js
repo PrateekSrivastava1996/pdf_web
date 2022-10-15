@@ -33,6 +33,10 @@ const ListPage = () => {
     }
   }, [selector]);
 
+  const handleClick=(animeid)=>{
+    router.push(`/watch/${animeid}`)
+  }
+
   return (
     <>
       <div className="bg-white pt-[100px] pl-[25px] pr-[25px] bg-slate-700 ">
@@ -46,7 +50,7 @@ const ListPage = () => {
                 {jap?.map((w) => {
                   return (
                     <li className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
-                      <div className="flex justify-between	">
+                      <div className="flex justify-between	"  onClick={()=>handleClick(w.animeId)}>
                         <img
                           className="h-[125px] flex-none w-[250px]  rounded-lg"
                           src={w.animeImg}
@@ -76,7 +80,7 @@ const ListPage = () => {
                 {dub?.map((w) => {
                   return (
                     <li className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
-                      <div className="flex justify-between	">
+                      <div className="flex justify-between	" onClick={()=>handleClick(w.animeId)}>
                         <img
                           className="h-[125px] flex-none w-[250px]  rounded-lg"
                           src={w.animeImg}
@@ -105,7 +109,7 @@ const ListPage = () => {
                 {ch?.map((w) => {
                   return (
                     <li className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
-                      <div className="flex justify-between	">
+                      <div className="flex justify-between	" onClick={()=>handleClick(w.animeId)}>
                         <img
                           className="h-[125px] flex-none w-[250px]  rounded-lg"
                           src={w.animeImg}

@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import { topAirCouusel } from "../../../store/anime/animeaction";
-
+import { useRouter } from "next/router";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1285 },
@@ -31,6 +31,7 @@ const CrouselePage = () => {
   const dispatch = useDispatch();
   const selector = useSelector((pre) => pre.anime);
   const [data, setData] = useState([]);
+  const router = useRouter() 
 
   let demoEpisdoe = [
     {
@@ -92,6 +93,10 @@ const CrouselePage = () => {
   useEffect(() => {
     setData(selector.TopAirTen || demoEpisdoe);
   }, [selector]);
+
+  const handleClick=(animeid)=>{
+    router.push(`/watch/${animeid}`)
+  }
   return (
     <div className="w-full   pt-[30px] bg-slate-700 flex  flex-row justify-center	">
      <div className="w-full pr-[43px] pl-[43px]" >
@@ -115,7 +120,7 @@ const CrouselePage = () => {
       >
         {data?.map((w) => {
           return (
-            <div class="max-w-sm bg-white rounded-lg border  border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 h-[500px]">
+            <div class="max-w-sm bg-white rounded-lg border  border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 h-[500px]" onClick={()=>handleClick(w.animeId)}>
               <a href="#">
                 <img
                   class="rounded-t-lg h-[300px] w-full  "

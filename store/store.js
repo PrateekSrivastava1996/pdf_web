@@ -49,11 +49,11 @@ const middleware = [thunk];
 // creating store
 export const store = createStore(
   reducer,
-  loadFromLocalStorage(),
+ // loadFromLocalStorage(),
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
-store.subscribe(() => saveToLocalStorage(store.getState()));
+//store.subscribe(() => saveToLocalStorage(store.getState()));
 // assigning store to next wrapper
 const makeStore = () => store;
 export const wrapper = createWrapper(makeStore);

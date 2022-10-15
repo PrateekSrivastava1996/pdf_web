@@ -80,9 +80,13 @@ const SectionPage = () => {
   useEffect(() => {
     setData(selector.AirThree || demoEpisdoe);
   }, [selector]);
+
+  const handleClick=(animeid)=>{
+    router.push(`/watch/${animeid}`)
+  }
   return (
     <>
-      <div className="bg-white pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
+      <div className=" pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
         <div className="mx-auto max-w-2xl    lg:max-w-7xl 	 ">
           <h2 className="text-2xl font-bold tracking-tight text-slate-100	 pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
             Top-Air Anime
@@ -91,7 +95,7 @@ const SectionPage = () => {
           <div className="mt-6 grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
             {data.map((product) => (
               <div key={product.id} className="group relative" 
-             
+             onClick={()=>handleClick(product.animeId)}
               >
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                   <img

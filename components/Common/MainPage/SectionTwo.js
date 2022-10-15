@@ -49,6 +49,9 @@ const SectionPage = () => {
   useEffect(() => {
     setData(selector.movieten || demoEpisdoe);
   }, [selector]);
+  const handleClick=(animeid)=>{
+    router.push(`/watch/${animeid}`)
+  }
   return (
     <>
       <div className="bg-white pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
@@ -59,7 +62,7 @@ const SectionPage = () => {
 
           <div className="mt-6 grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
             {data.map((product) => (
-              <div key={product.id} className="group relative">
+              <div key={product.id} className="group relative" onClick={()=>handleClick(product.animeId)}>
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                   <img
                     src={product.animeImg}

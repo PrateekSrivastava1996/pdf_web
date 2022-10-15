@@ -12,11 +12,14 @@
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.23.4",
     "axios": "^0.27.2",
+    "jquery": "^3.6.1",
+    "js-ffmpeg": "^0.0.38",
     "next": "12.3.1",
     "next-redux-wrapper": "^8.0.0",
     "react": "18.2.0",
     "react-device-detect": "^2.2.2",
     "react-dom": "18.2.0",
+    "react-hls-player": "^3.0.7",
     "react-js-pagination": "^3.0.3",
     "react-loader-spinner": "^5.3.4",
     "react-multi-carousel": "^2.8.2",
@@ -26,7 +29,8 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5",
-    "sweetalert2": "^11.4.33"
+    "sweetalert2": "^11.4.33",
+    "vidstreaming-scraper": "^1.0.11"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",

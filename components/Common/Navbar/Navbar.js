@@ -92,6 +92,7 @@ const Navbar = () => {
                   width: 250,
                 }}
                 options={dataOption}
+                onSelect={(value,option)=>console.log(option)}
               >
                 <Input.Search size="large" placeholder="input here" onChange={(e)=>{
                   handleOnchage(e)
