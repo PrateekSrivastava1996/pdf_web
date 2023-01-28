@@ -5,6 +5,8 @@ import MainBtnPage from "../MainPage/MainBtnPage";
 import { useRouter } from "next/router";
 import { searchAnime } from "../../../store/anime/animeaction";
 import { useDispatch, useSelector } from "react-redux";
+import Image from 'next/image'
+import { NodeNextRequest } from "next/dist/server/base-http/node";
 
 const renderTitle = (title, count) => (
   <div
@@ -42,26 +44,26 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if(selector.searchanime?.length>0){
-        let datava= selector.searchanime?.map((e)=>{
-          return  {
-            label: renderTitle(e.animeTitle , e.status),
-          }
-        })
-        setDataOption(datava)
-    }else{
+    if (selector.searchanime?.length > 0) {
+      let datava = selector.searchanime?.map((e) => {
+        return {
+          label: renderTitle(e.animeTitle, e.status),
+        }
+      })
+      setDataOption(datava)
+    } else {
       const options = [
         {
           label: renderTitle("No data Found", 0),
         },
-       
+
       ];
 
       setDataOption(options)
     }
   }, [selector]);
 
-  const handleOnchage=(e)=>{
+  const handleOnchage = (e) => {
     dispatch(searchAnime(e.target.value));
   }
 
@@ -76,8 +78,14 @@ const Navbar = () => {
                 router.push("/");
               }}
             >
-              <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white cursor-pointer	">
-                My My Anime
+              <span class="self-center text-white text-2xl font-semibold whitespace-nowrap cursor-pointer">
+              {/* My Anime */}
+              <Image
+                src="/myanime-logo.png"
+                alt="Picture of the author"
+                width={215}
+                height={55}
+              />
               </span>
             </span>
 
@@ -86,15 +94,20 @@ const Navbar = () => {
               id="navbar-default bg-slate-700"
             >
               <AutoComplete
+                class="focus:outline-none"
                 popupClassName="certain-category-search-dropdown"
-                dropdownMatchSelectWidth={500}
+                dropdownMatchSelectWidth={100}
                 style={{
-                  width: 250,
+                  width: 350,
                 }}
                 options={dataOption}
-                onSelect={(value,option)=>console.log(option)}
+                onSelect={(value, option) => console.log(option)}
               >
-                <Input.Search size="large" placeholder="input here" onChange={(e)=>{
+                <Input.Search 
+                size="large" 
+                placeholder="Search..." 
+                
+                onChange={(e) => {
                   handleOnchage(e)
                 }} />
               </AutoComplete>
