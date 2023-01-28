@@ -47,9 +47,9 @@ const ListPage = () => {
                 <li className=" text-lg	 px-6 py-2 border-b border-gray-200 w-full rounded-t-lg font-bold  text-slate-100	 bg-yellow-600">
                   Japanese Sub Recent Release
                 </li>
-                {jap?.map((w) => {
+                {jap?.map((w ,i) => {
                   return (
-                    <li className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
+                    <li key={i} className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
                       <div className="flex justify-between	"  onClick={()=>handleClick(w.animeId)}>
                         <img
                           className="h-[125px] flex-none w-[250px]  rounded-lg"
@@ -77,9 +77,9 @@ const ListPage = () => {
                 <li className=" text-lg	 px-6 py-2 border-b border-gray-200 w-full rounded-t-lg font-bold  text-slate-100	 bg-yellow-600">
                   English Dub Recent Release
                 </li>
-                {dub?.map((w) => {
+                {dub?.map((w,i) => {
                   return (
-                    <li className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
+                    <li key={i} className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
                       <div className="flex justify-between	" onClick={()=>handleClick(w.animeId)}>
                         <img
                           className="h-[125px] flex-none w-[250px]  rounded-lg"
@@ -106,9 +106,9 @@ const ListPage = () => {
                   Chinese Dub Recent Release
                 </li>
 
-                {ch?.map((w) => {
+                {ch?.map((w,i) => {
                   return (
-                    <li className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
+                    <li key={i}  className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
                       <div className="flex justify-between	" onClick={()=>handleClick(w.animeId)}>
                         <img
                           className="h-[125px] flex-none w-[250px]  rounded-lg"

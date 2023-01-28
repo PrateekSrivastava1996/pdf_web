@@ -118,9 +118,9 @@ const CrouselePage = () => {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        {data?.map((w) => {
+        {data?.map((w,i) => {
           return (
-            <div class="max-w-sm bg-white rounded-lg border  border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 h-[500px]" onClick={()=>handleClick(w.animeId)}>
+            <div key={i} class="max-w-sm bg-white rounded-lg border  border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 h-[500px]" onClick={()=>handleClick(w.animeId)}>
               <a href="#">
                 <img
                   class="rounded-t-lg h-[300px] w-full  "
@@ -140,9 +140,9 @@ const CrouselePage = () => {
                 <div className="w-full grid grid-cols-3">
 
                   {
-                    w.genres?.map((q)=>{
+                    w.genres?.map((q ,i)=>{
                       return(
-                        <span class="mt-[10px] bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">{q}</span>
+                        <span key={i} class="mt-[10px] bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">{q}</span>
                       )
                     })
                   }

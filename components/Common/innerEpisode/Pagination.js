@@ -22,9 +22,10 @@ export default function Pagination({ page, totelPage, handlePage, pageList }) {
             Previous
           </a>
         </li>
-        {pageList?.map((w) => {
+        {pageList?.map((w,i) => {
           return (
             <li
+            key={is}
             onClick={()=>handlePage(w)}
             >
               <a href="#"
