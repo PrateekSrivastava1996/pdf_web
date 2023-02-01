@@ -86,13 +86,13 @@ const SectionPage = () => {
   }
   return (
     <>
-      <div className=" pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
+      <div className=" 2xl:pt-[30px] xl:pt-[30px]  lg:pt-[30px] border-yellow-500 	 border-2 bg-slate-700 ">
         <div className="mx-auto max-w-2xl    lg:max-w-7xl 	 ">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-100	 pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
+          <h2 className="text-2xl flex w-full justify-center font-bold tracking-tight text-slate-100	 pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
             Top-Air Anime
           </h2>
 
-          <div className="mt-6 grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
+          <div className="mt-6 grid md:grid-cols-2 2xl:grid-cols-3  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
             {data.map((product) => (
               <div key={product.id} className="group relative" 
              onClick={()=>handleClick(product.animeId)}
@@ -125,7 +125,7 @@ const SectionPage = () => {
             <div class="flex-none w-34 h-14 cursor-pointer	text-cyan-500	font-semibold	hover:text-amber-600" onClick={()=>{
                 router.push(`/episode/topair`)
               }}>
-              View More
+             @  View More
             </div>
           </div>
         </div>

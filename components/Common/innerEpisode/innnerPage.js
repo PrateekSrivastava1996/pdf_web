@@ -10,12 +10,11 @@ import {
 } from "../../../store/anime/animeaction";
 import { Pagination } from "antd";
 import { Audio } from "react-loader-spinner";
-import { useRouter } from 'next/router'
-
+import { useRouter } from "next/router";
 
 const SectionPage = ({ id, type }) => {
   const dispatch = useDispatch();
-  const router = useRouter()
+  const router = useRouter();
   const selector = useSelector((pre) => pre.anime);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
@@ -116,36 +115,48 @@ const SectionPage = ({ id, type }) => {
     }
   };
 
-  const handleClick=(animeid)=>{
-    router.push(`/watch/${animeid}`)
-  }
+  const handleClick = (animeid) => {
+    router.push(`/watch/${animeid}`);
+  };
   return (
     <>
-      <div className="bg-white pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
+      <div className="bg-white h-full  2xl:pt-[30px] xl:pt-[30px] lg:pt-[30px]  border-yellow-500 	 border-2 bg-slate-700 ">
         <div className="mx-auto max-w-2xl    lg:max-w-7xl 	 ">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-100 w-full	 pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
-            {
-              type=='japsub'? "Japanese  Sub Anime":type=='Dub Anime'?"":type=='chsub'?"Chinese  Sub Anime":type=='movie'?"Anime Movies ":type=='popular'?'Popular Anime':"Top Anime "
-            }
+          <h2 className="text-2xl flex w-full justify-center font-bold tracking-tight text-slate-100 w-full	lg:pt-[10px] xl:pt-[10px] 2xl:pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
+            {type == "japsub"
+              ? "Japanese  Sub Anime"
+              : type == "Dub Anime"
+              ? ""
+              : type == "chsub"
+              ? "Chinese  Sub Anime"
+              : type == "movie"
+              ? "Anime Movies "
+              : type == "popular"
+              ? "Popular Anime"
+              : "Top Anime "}
           </h2>
 
-          <div className="mt-6 grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
+          <div className="mt-6 h-full grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
             {loading ? (
-              <div className="flex w-full justify-center flex-row ml-[50%]">
+              <div className="flex w-full h-screen justify-center flex-row pt-[50%] xl:ml-[50%] 2xl:ml-[50%] lg:ml-[50%] 2xl:pb-[10px] xl:pb-[10px] lg:pb-[10px]">
                 <Audio
-                height="80"
-                width="80"
-                radius="9"
-                color="green"
-                ariaLabel="loading"
-                wrapperStyle
-                wrapperClass
-              />
-                </div>
+                  height="80"
+                  width="80"
+                  radius="9"
+                  color="green"
+                  ariaLabel="loading"
+                  wrapperStyle
+                  wrapperClass
+                />
+              </div>
             ) : (
               <>
                 {data.map((product) => (
-                  <div key={product.id} className="group relative" onClick={()=>handleClick(product.animeId)}>
+                  <div
+                    key={product.id}
+                    className="group relative"
+                    onClick={() => handleClick(product.animeId)}
+                  >
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                       <img
                         src={product.animeImg}
@@ -175,18 +186,20 @@ const SectionPage = ({ id, type }) => {
             )}
           </div>
 
-          <div class="flex justify-end	 mr-[10px] mb-[20px] ">
-            <Pagination
-              current={page}
-              defaultPageSize={20}
-              pageSize={20}
-              total={totelPage * 20}
-              defaultCurrent={1}
-              pageSizeOptions={[20]}
-              showSizeChanger={false}
-              onChange={handleChangePage}
-            />
-          </div>
+          {!loading && (
+            <div class="flex justify-end	 mr-[10px] mb-[20px] mycsscheck">
+              <Pagination
+                current={page}
+                defaultPageSize={20}
+                pageSize={20}
+                total={totelPage * 20}
+                defaultCurrent={1}
+                pageSizeOptions={[20]}
+                showSizeChanger={false}
+                onChange={handleChangePage}
+              />
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -90,7 +90,7 @@ const Navbar = () => {
             </span>
 
             <div
-              class="w-auto md:block md:w-auto"
+              class="w-auto md:block md:w-auto inpSearchbar"
               id="navbar-default bg-slate-700"
             >
               <AutoComplete
@@ -105,7 +105,7 @@ const Navbar = () => {
               >
                 <Input.Search 
                 size="large" 
-                placeholder="Search..." 
+                placeholder="Search By Anime Name ..." 
                 
                 onChange={(e) => {
                   handleOnchage(e)
@@ -114,7 +114,8 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
-        <MainBtnPage />
+        {/* category Btn Here */}
+        {/* <MainBtnPage /> */}
       </div>
     </>
   );

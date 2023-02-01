@@ -98,8 +98,8 @@ const CrouselePage = () => {
     router.push(`/watch/${animeid}`)
   }
   return (
-    <div className="w-full   pt-[30px] bg-slate-700 flex  flex-row justify-center	">
-     <div className="w-full pr-[43px] pl-[43px]" >
+    <div className="w-full   pt-[30px] pb-[30px] bg-slate-700 flex  flex-row justify-center	">
+     <div className="w-full pr-[43px] pl-[43px] h-auto" >
      <Carousel
         swipeable={true}
         draggable={false}
@@ -116,7 +116,7 @@ const CrouselePage = () => {
         removeArrowOnDeviceType={["tablet", "mobile"]}
         //deviceType={this.props.deviceType}
         dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
+        itemClass="carousel-item-padding-50-px"
       >
         {data?.map((w,i) => {
           return (

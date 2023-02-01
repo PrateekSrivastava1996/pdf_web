@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { moviesTen } from "../../../store/anime/animeaction";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 const SectionPage = () => {
   const dispatch = useDispatch();
   const selector = useSelector((pre) => pre.anime);
   const [data, setData] = useState([]);
-  const router = useRouter()
+  const router = useRouter();
 
   let demoEpisdoe = [
     {
@@ -49,20 +49,24 @@ const SectionPage = () => {
   useEffect(() => {
     setData(selector.movieten || demoEpisdoe);
   }, [selector]);
-  const handleClick=(animeid)=>{
-    router.push(`/watch/${animeid}`)
-  }
+  const handleClick = (animeid) => {
+    router.push(`/watch/${animeid}`);
+  };
   return (
     <>
-      <div className="bg-white pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
+      <div className="bg-whitelg:pt-[30px] xl:pt-[30px] 2xl:pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
         <div className="mx-auto max-w-2xl    lg:max-w-7xl 	 ">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-100	 pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
-             Anime Movies
+          <h2 className="text-2xl flex w-full justify-center font-bold tracking-tight text-slate-100	 pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
+            Anime Movies
           </h2>
 
           <div className="mt-6 grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
             {data.map((product) => (
-              <div key={product.id} className="group relative" onClick={()=>handleClick(product.animeId)}>
+              <div
+                key={product.id}
+                className="group relative"
+                onClick={() => handleClick(product.animeId)}
+              >
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                   <img
                     src={product.animeImg}
@@ -88,11 +92,13 @@ const SectionPage = () => {
           </div>
 
           <div class="flex justify-end	 mr-[10px]">
-            <div class="flex-none w-34 h-14 cursor-pointer	text-cyan-500	font-semibold	hover:text-amber-600" onClick={()=>{
-                  router.push('/episode/movie')
-
-            }}>
-              View More
+            <div
+              class="flex-none w-34 h-14 cursor-pointer	text-cyan-500	font-semibold	hover:text-amber-600"
+              onClick={() => {
+                router.push("/episode/movie");
+              }}
+            >
+            @  View More
             </div>
           </div>
         </div>

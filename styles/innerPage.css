@@ -1,0 +1,26 @@
+.mycsscheck > ul > li {
+  background-color: #334155 !important;
+  border-color: #334155;
+}
+.mycsscheck > ul > li > a {
+  color: lightslategray;
+  font-weight: bold;
+}
+
+.mycsscheck > ul > li > button {
+  background-color: #334155 !important;
+  border-color: #334155 !important;
+  color: lightslategray !important;
+  font-weight: bold !important;
+}
+
+.ant-pagination-prev {
+  background-color: #334155 !important;
+}
+.inpSearchbar > div > div > span > span > span > input {
+  border: none;
+  border-radius: 15px;
+}
+.inpSearchbar > div > div > span > span > span > span > button {
+  background-color: aqua !important;
+}

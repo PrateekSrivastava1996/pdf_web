@@ -56,9 +56,9 @@ const SectionPage = () => {
   }
   return (
     <>
-      <div className="bg-white pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
+      <div className="bg-white lg:pt-[30px] xl:pt-[30px] 2xl:pt-[30px]  border-yellow-500 	 border-2 bg-slate-700 ">
         <div className="mx-auto max-w-2xl    lg:max-w-7xl 	 ">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-100	 pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
+          <h2 className="text-2xl flex w-full justify-center font-bold tracking-tight text-slate-100	 pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
             Popular Anime
           </h2>
 
@@ -94,7 +94,7 @@ const SectionPage = () => {
             <div class="flex-none w-34 h-14 cursor-pointer	text-cyan-500	font-semibold	hover:text-amber-600" onClick={()=>{
               router.push('/episode/popular')
             }}>
-              View More
+             @ View More
             </div>
           </div>
         </div>

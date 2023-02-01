@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import Theme from "../utils/theme";
 import { Navbar ,Footer } from "../components/Common/index";
 import 'antd/dist/antd.css';
+import '../styles/innerPage.css'
+
 //import { Navbar, Footer } from "@components/Common";
 
 function MyApp({ Component, pageProps }) {
