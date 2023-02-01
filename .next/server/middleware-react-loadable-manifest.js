@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={"../components/Common/watchPage/WtachPage.js -> react-hls-player":{id:1696,files:["static/chunks/ddc9e94f.c37caadb3f63c3b7.js","static/chunks/696.082dffa1171d5636.js"]}};
+self.__REACT_LOADABLE_MANIFEST={"..\\components\\Common\\watchPage\\WtachPage.js -> react-hls-player":{id:1696,files:["static/chunks/ddc9e94f.c37caadb3f63c3b7.js","static/chunks/696.082dffa1171d5636.js"]}};

@@ -105,55 +105,52 @@ const Navbar = ()=>{
         dispatch((0,animeaction/* searchAnime */.cd)(e.target.value));
     };
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
             className: "bg-slate-700",
-            children: [
-                /*#__PURE__*/ jsx_runtime_.jsx("nav", {
-                    class: "bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 bg-slate-700",
-                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        class: "container flex flex-wrap justify-between items-center mx-auto ",
-                        children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                class: "flex items-center ",
-                                onClick: ()=>{
-                                    router.push("/");
-                                },
-                                children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                    class: "self-center text-white text-2xl font-semibold whitespace-nowrap cursor-pointer",
-                                    children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
-                                        src: "/myanime-logo.png",
-                                        alt: "Picture of the author",
-                                        width: 215,
-                                        height: 55
-                                    })
-                                })
-                            }),
-                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                class: "w-auto md:block md:w-auto",
-                                id: "navbar-default bg-slate-700",
-                                children: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.AutoComplete, {
-                                    class: "focus:outline-none",
-                                    popupClassName: "certain-category-search-dropdown",
-                                    dropdownMatchSelectWidth: 100,
-                                    style: {
-                                        width: 350
-                                    },
-                                    options: dataOption,
-                                    onSelect: (value, option)=>console.log(option),
-                                    children: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Input.Search, {
-                                        size: "large",
-                                        placeholder: "Search...",
-                                        onChange: (e)=>{
-                                            handleOnchage(e);
-                                        }
-                                    })
+            children: /*#__PURE__*/ jsx_runtime_.jsx("nav", {
+                class: "bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 bg-slate-700",
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    class: "container flex flex-wrap justify-between items-center mx-auto ",
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                            class: "flex items-center ",
+                            onClick: ()=>{
+                                router.push("/");
+                            },
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                class: "self-center text-white text-2xl font-semibold whitespace-nowrap cursor-pointer",
+                                children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
+                                    src: "/myanime-logo.png",
+                                    alt: "Picture of the author",
+                                    width: 215,
+                                    height: 55
                                 })
                             })
-                        ]
-                    })
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx(MainBtnPage/* default */.Z, {})
-            ]
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            class: "w-auto md:block md:w-auto inpSearchbar",
+                            id: "navbar-default bg-slate-700",
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.AutoComplete, {
+                                class: "focus:outline-none",
+                                popupClassName: "certain-category-search-dropdown",
+                                dropdownMatchSelectWidth: 100,
+                                style: {
+                                    width: 350
+                                },
+                                options: dataOption,
+                                onSelect: (value, option)=>console.log(option),
+                                children: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Input.Search, {
+                                    size: "large",
+                                    placeholder: "Search By Anime Name ...",
+                                    onChange: (e)=>{
+                                        handleOnchage(e);
+                                    }
+                                })
+                            })
+                        })
+                    ]
+                })
+            })
         })
     });
 };
@@ -163,57 +160,24 @@ const Navbar = ()=>{
 
 
 const Footer = ()=>{
+    let yearLetest = new Date().getFullYear();
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("footer", {
-            class: "p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 bg-slate-700",
-            children: [
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
-                    class: "text-sm text-gray-500 sm:text-center dark:text-gray-400",
-                    children: [
-                        "\xa9 2022",
-                        " ",
-                        /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                            href: "https://flowbite.com/",
-                            class: "hover:underline",
-                            children: "Flowbite™"
-                        }),
-                        ". All Rights Reserved."
-                    ]
-                }),
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("ul", {
-                    class: "flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0",
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                href: "#",
-                                class: "mr-4 hover:underline md:mr-6 ",
-                                children: "About"
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                href: "#",
-                                class: "mr-4 hover:underline md:mr-6",
-                                children: "Privacy Policy"
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                href: "#",
-                                class: "mr-4 hover:underline md:mr-6",
-                                children: "Licensing"
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("li", {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                href: "#",
-                                class: "hover:underline",
-                                children: "Contact"
-                            })
-                        })
-                    ]
-                })
-            ]
+        children: /*#__PURE__*/ jsx_runtime_.jsx("footer", {
+            class: "p-4 bg-white shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 bg-slate-700",
+            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
+                class: "text-sm text-gray-500 sm:text-center dark:text-gray-400",
+                children: [
+                    "\xa9 ",
+                    yearLetest,
+                    " ",
+                    /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                        href: "#",
+                        class: "hover:underline",
+                        children: "Bansal Technologies"
+                    }),
+                    ". All Rights Reserved."
+                ]
+            })
         })
     });
 };
@@ -338,18 +302,18 @@ const SectionPage = ({ id , type  })=>{
     };
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-            className: "bg-white pt-[30px] border-yellow-500 rounded-lg border-2 bg-slate-700 ",
+            className: "bg-white h-full 2xl:pt-[30px] xl:pt-[30px] lg:pt-[30px] border-yellow-500 border-2 bg-slate-700 ",
             children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: "mx-auto max-w-2xl lg:max-w-7xl ",
                 children: [
                     /*#__PURE__*/ jsx_runtime_.jsx("h2", {
-                        className: "text-2xl font-bold tracking-tight text-slate-100 w-full pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg",
+                        className: "text-2xl flex w-full justify-center font-bold tracking-tight text-slate-100 w-full lg:pt-[10px] xl:pt-[10px] 2xl:pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg",
                         children: type == "japsub" ? "Japanese  Sub Anime" : type == "Dub Anime" ? "" : type == "chsub" ? "Chinese  Sub Anime" : type == "movie" ? "Anime Movies " : type == "popular" ? "Popular Anime" : "Top Anime "
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: "mt-6 grid grid-cols-1 ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5",
+                        className: "mt-6 h-full grid grid-cols-1 ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5",
                         children: loading ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "flex w-full justify-center flex-row ml-[50%]",
+                            className: "flex w-full h-screen justify-center flex-row pt-[50%] xl:ml-[50%] 2xl:ml-[50%] lg:ml-[50%] 2xl:pb-[10px] xl:pb-[10px] lg:pb-[10px]",
                             children: /*#__PURE__*/ jsx_runtime_.jsx(external_react_loader_spinner_.Audio, {
                                 height: "80",
                                 width: "80",
@@ -400,8 +364,8 @@ const SectionPage = ({ id , type  })=>{
                                 }, product.id))
                         })
                     }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        class: "flex justify-end mr-[10px] mb-[20px] ",
+                    !loading && /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        class: "flex justify-end mr-[10px] mb-[20px] mycsscheck",
                         children: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Pagination, {
                             current: page,
                             defaultPageSize: 20,
@@ -433,7 +397,7 @@ var dynamic_default = /*#__PURE__*/__webpack_require__.n(dynamic);
 const ReactHlsPlayer = dynamic_default()(null, {
     loadableGenerated: {
         modules: [
-            "../components/Common/watchPage/WtachPage.js -> " + "react-hls-player"
+            "..\\components\\Common\\watchPage\\WtachPage.js -> " + "react-hls-player"
         ]
     },
     ssr: false

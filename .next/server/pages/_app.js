@@ -321,6 +321,7 @@ var antd = __webpack_require__(4722);
 
 
 
+
 //import { Navbar, Footer } from "@components/Common";
 function MyApp({ Component , pageProps  }) {
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(external_react_redux_.Provider, {
