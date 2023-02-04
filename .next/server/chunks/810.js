@@ -86,14 +86,16 @@ const Navbar = ()=>{
         if (selector.searchanime?.length > 0) {
             let datava = selector.searchanime?.map((e)=>{
                 return {
-                    label: renderTitle(e.animeTitle, e.status)
+                    label: renderTitle(e.animeTitle, e.status),
+                    value: e.animeId
                 };
             });
             setDataOption(datava);
         } else {
             const options = [
                 {
-                    label: renderTitle("No data Found", 0)
+                    label: renderTitle("No data Found", 0),
+                    value: ""
                 }, 
             ];
             setDataOption(options);
@@ -104,13 +106,16 @@ const Navbar = ()=>{
     const handleOnchage = (e)=>{
         dispatch((0,animeaction/* searchAnime */.cd)(e.target.value));
     };
+    const onSelect = (value)=>{
+        router.push(`/watch/${value}`);
+    };
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
             className: "bg-slate-700",
             children: /*#__PURE__*/ jsx_runtime_.jsx("nav", {
                 class: "bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 bg-slate-700",
                 children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                    class: "container flex flex-wrap justify-between items-center mx-auto ",
+                    class: "container flex flex-wrap sm:justify-between md:justify-between lg:justify-between xl:justify-between 2xl:justify-between items-center mx-auto ",
                     children: [
                         /*#__PURE__*/ jsx_runtime_.jsx("span", {
                             class: "flex items-center ",
@@ -138,7 +143,7 @@ const Navbar = ()=>{
                                     width: 350
                                 },
                                 options: dataOption,
-                                onSelect: (value, option)=>console.log(option),
+                                onSelect: onSelect,
                                 children: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Input.Search, {
                                     size: "large",
                                     placeholder: "Search By Anime Name ...",
@@ -302,7 +307,7 @@ const SectionPage = ({ id , type  })=>{
     };
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-            className: "bg-white h-full 2xl:pt-[30px] xl:pt-[30px] lg:pt-[30px] border-yellow-500 border-2 bg-slate-700 ",
+            className: "bg-white h-full 2xl:pt-[30px] xl:pt-[30px] lg:pt-[30px] bg-slate-700 ",
             children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: "mx-auto max-w-2xl lg:max-w-7xl ",
                 children: [
@@ -310,26 +315,26 @@ const SectionPage = ({ id , type  })=>{
                         className: "text-2xl flex w-full justify-center font-bold tracking-tight text-slate-100 w-full lg:pt-[10px] xl:pt-[10px] 2xl:pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg",
                         children: type == "japsub" ? "Japanese  Sub Anime" : type == "Dub Anime" ? "" : type == "chsub" ? "Chinese  Sub Anime" : type == "movie" ? "Anime Movies " : type == "popular" ? "Popular Anime" : "Top Anime "
                     }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: "mt-6 h-full grid grid-cols-1 ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5",
-                        children: loading ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "flex w-full h-screen justify-center flex-row pt-[50%] xl:ml-[50%] 2xl:ml-[50%] lg:ml-[50%] 2xl:pb-[10px] xl:pb-[10px] lg:pb-[10px]",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(external_react_loader_spinner_.Audio, {
-                                height: "80",
-                                width: "80",
-                                radius: "9",
-                                color: "green",
-                                ariaLabel: "loading",
-                                wrapperStyle: true,
-                                wrapperClass: true
-                            })
-                        }) : /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+                    loading ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: "flex w-full h-screen justify-center flex-row pt-[50%] xl:ml-[50%] 2xl:ml-[50%] lg:ml-[50%] 2xl:pb-[10px] xl:pb-[10px] lg:pb-[10px]",
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(external_react_loader_spinner_.Audio, {
+                            height: "80",
+                            width: "80",
+                            radius: "9",
+                            color: "green",
+                            ariaLabel: "loading",
+                            wrapperStyle: true,
+                            wrapperClass: true
+                        })
+                    }) : /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: "mt-6 h-full grid grid-cols-2 ml-[25px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5",
                             children: data.map((product)=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                     className: "group relative",
                                     onClick: ()=>handleClick(product.animeId),
                                     children: [
                                         /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                            className: "min-h-80 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80",
+                                            className: "min-h-200 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80",
                                             children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
                                                 src: product.animeImg,
                                                 alt: product.animeId,
@@ -365,7 +370,7 @@ const SectionPage = ({ id , type  })=>{
                         })
                     }),
                     !loading && /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        class: "flex justify-end mr-[10px] mb-[20px] mycsscheck",
+                        class: "flex justify-end mr-[10px] mt-[10px] mycsscheck",
                         children: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Pagination, {
                             current: page,
                             defaultPageSize: 20,
@@ -404,6 +409,7 @@ const ReactHlsPlayer = dynamic_default()(null, {
 });
 
 
+
 const Post = ()=>{
     const router = (0,router_.useRouter)();
     const selector = (0,external_react_redux_.useSelector)((pre)=>pre.anime);
@@ -421,6 +427,9 @@ const Post = ()=>{
         linktwo: "",
         typeTwo: ""
     });
+    const { 0: loading , 1: setLoading  } = (0,external_react_.useState)(false);
+    const { 0: loadingtwo , 1: setLoadingtwo  } = (0,external_react_.useState)(false);
+    const { 0: loadingthree , 1: setLoadingthree  } = (0,external_react_.useState)(false);
     const { 0: currentLink , 1: setCurrentlink  } = (0,external_react_.useState)({
         type: "",
         link: "",
@@ -435,18 +444,29 @@ const Post = ()=>{
         id
     ]);
     (0,external_react_.useEffect)(()=>{
+        setLoading(true);
+        setLoadingthree(true);
+        setLoadingtwo(true);
         if (Object.keys(selector.animedetail).length > 0) {
             setEpisodeData(selector.animedetail);
+            setLoading(false);
             if (selector?.animedetail?.episodesList?.length > 0) {
                 let arrEpisode = selector?.animedetail?.episodesList?.reverse();
+                setCurrentEpisode({
+                    ...currentEpisode,
+                    name: arrEpisode[0].episodeId,
+                    episode: arrEpisode[0].episodeNum
+                });
                 setEpisodeList(arrEpisode);
                 dispatch((0,animeaction/* watchAnime */.$L)(arrEpisode[0].episodeId));
+                setLoadingthree(false);
             }
         }
     }, [
         selector.animedetail
     ]);
     (0,external_react_.useEffect)(()=>{
+        setLoadingtwo(true);
         if (Object.keys(selector.watchanime).length > 0) {
             const { sources , sources_bk  } = selector.watchanime;
             setCurrentEpisode({
@@ -463,11 +483,13 @@ const Post = ()=>{
                 num: "one",
                 show: true
             });
+            setLoadingtwo(false);
         } else {
             setCurrentlink({
                 ...currentLink,
                 show: false
             });
+            setLoadingtwo(false);
         }
     }, [
         selector.watchanime
@@ -505,7 +527,24 @@ const Post = ()=>{
             children: [
                 /*#__PURE__*/ jsx_runtime_.jsx("div", {
                     className: "flex flex-row w-full justify-center px-[30px]",
-                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
+                    children: loading ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        className: "flex flex-row w-full justify-center items-center bg-white cursor-pointer w-[295px] h-[209px] rounded-lg border shadow-md md:flex-row mt-[10px] mb-[10px] hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700",
+                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: "pt-[42px]",
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx(external_react_loader_spinner_.Audio, {
+                                    height: "80",
+                                    width: "80",
+                                    radius: "9",
+                                    color: "green",
+                                    ariaLabel: "loading",
+                                    wrapperStyle: true,
+                                    wrapperClass: true
+                                }),
+                                " "
+                            ]
+                        })
+                    }) : /*#__PURE__*/ (0,jsx_runtime_.jsxs)("span", {
                         className: "flex flex-col items-center bg-white cursor-pointer rounded-lg border shadow-md md:flex-row mt-[10px] mb-[10px] hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700",
                         children: [
                             /*#__PURE__*/ jsx_runtime_.jsx("img", {
@@ -571,71 +610,92 @@ const Post = ()=>{
                         ]
                     })
                 }),
-                currentLink.show && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                    className: "mb-[20px] mt-[20px]",
-                    children: [
-                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                            className: "flex flex-row w-full justify-between justify-around mb-[20px]",
+                loadingtwo ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "mb-[20px] mt-[20px] flex flex-row w-full justify-center ",
+                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: "pt-[42px]",
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx(external_react_loader_spinner_.Audio, {
+                                height: "80",
+                                width: "80",
+                                radius: "9",
+                                color: "green",
+                                ariaLabel: "loading",
+                                wrapperStyle: true,
+                                wrapperClass: true
+                            }),
+                            " "
+                        ]
+                    })
+                }) : /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+                    children: currentLink.show && /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: "mb-[20px] mt-[20px]",
                             children: [
                                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                    className: "flex flex-row w-full justify-between justify-around mb-[20px]",
                                     children: [
-                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
-                                            for: "countries",
-                                            className: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
+                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                             children: [
-                                                "Anime Name - ",
-                                                currentEpisode.name
-                                            ]
-                                        }),
-                                        " ",
-                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
-                                            for: "countries",
-                                            className: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
-                                            children: [
-                                                "Episode List - ",
-                                                currentEpisode.episode
-                                            ]
-                                        })
-                                    ]
-                                }),
-                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                    children: [
-                                        /*#__PURE__*/ jsx_runtime_.jsx("label", {
-                                            for: "countries",
-                                            className: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400",
-                                            children: "Select a Server"
-                                        }),
-                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("select", {
-                                            value: currentLink.num,
-                                            id: "countries",
-                                            onChange: (e)=>handleSelect(e.target.values),
-                                            className: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
-                                            children: [
-                                                /*#__PURE__*/ jsx_runtime_.jsx("option", {
-                                                    value: "one",
-                                                    children: "Server One"
+                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
+                                                    for: "countries",
+                                                    className: "block mb-2 text-sm font-medium text-gray-300 dark:text-gray-300",
+                                                    children: [
+                                                        "Anime Name - ",
+                                                        currentEpisode.name
+                                                    ]
                                                 }),
-                                                /*#__PURE__*/ jsx_runtime_.jsx("option", {
-                                                    value: "two",
-                                                    children: "Server Two"
+                                                " ",
+                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("label", {
+                                                    for: "countries",
+                                                    className: "block mb-2 text-sm font-medium text-gray-300 dark:text-gray-300",
+                                                    children: [
+                                                        "Episode  - ",
+                                                        currentEpisode.episode
+                                                    ]
+                                                })
+                                            ]
+                                        }),
+                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                            children: [
+                                                /*#__PURE__*/ jsx_runtime_.jsx("label", {
+                                                    for: "countries",
+                                                    className: "block mb-2 text-sm font-medium text-gray-300 dark:text-gray-300",
+                                                    children: "Select a Server"
+                                                }),
+                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("select", {
+                                                    value: currentLink.num,
+                                                    id: "countries",
+                                                    onChange: (e)=>handleSelect(e.target.values),
+                                                    className: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+                                                    children: [
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("option", {
+                                                            value: "one",
+                                                            children: "Server One"
+                                                        }),
+                                                        /*#__PURE__*/ jsx_runtime_.jsx("option", {
+                                                            value: "two",
+                                                            children: "Server Two"
+                                                        })
+                                                    ]
                                                 })
                                             ]
                                         })
                                     ]
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: "flex flex-row w-full justify-center",
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx(ReactHlsPlayer, {
+                                        src: currentLink.link,
+                                        autoPlay: false,
+                                        controls: true,
+                                        width: "86%",
+                                        height: "auto"
+                                    })
                                 })
                             ]
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "flex flex-row w-full justify-center",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(ReactHlsPlayer, {
-                                src: currentLink.link,
-                                autoPlay: false,
-                                controls: true,
-                                width: "86%",
-                                height: "auto"
-                            })
                         })
-                    ]
+                    })
                 }),
                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                     children: [
@@ -646,15 +706,28 @@ const Post = ()=>{
                                 children: "Episode List"
                             })
                         }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 pl-[20px] pr-[20px] w w-full justify-center",
-                            children: episodeList?.map((w, i)=>{
-                                return /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                                    onClick: ()=>handleButtonEpisode(w),
-                                    type: "button",
-                                    className: "text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800",
-                                    children: w.episodeNum
-                                }, i);
+                        loadingthree ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: "flex flex-row w-full justify-center",
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(external_react_loader_spinner_.Audio, {
+                                height: "80",
+                                width: "80",
+                                radius: "9",
+                                color: "green",
+                                ariaLabel: "loading",
+                                wrapperStyle: true,
+                                wrapperClass: true
+                            })
+                        }) : /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 pl-[20px] pr-[20px] w-full justify-center",
+                                children: episodeList?.map((w, i)=>{
+                                    return /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                                        onClick: ()=>handleButtonEpisode(w),
+                                        type: "button",
+                                        className: `${currentEpisode.episode == w.episodeNum ? "text-yellow-700 border-yellow-700" : "text-gray-100 border-gray-100"}  hover:text-white border  hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800`,
+                                        children: w.episodeNum
+                                    }, i);
+                                })
                             })
                         })
                     ]

@@ -54,13 +54,13 @@ const SectionPage = () => {
   };
   return (
     <>
-      <div className="bg-whitelg:pt-[30px] xl:pt-[30px] 2xl:pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
+      <div className="bg-whitelg:pt-[30px] xl:pt-[30px] 2xl:pt-[30px]  bg-slate-700 ">
         <div className="mx-auto max-w-2xl    lg:max-w-7xl 	 ">
           <h2 className="text-2xl flex w-full justify-center font-bold tracking-tight text-slate-100	 pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
             Anime Movies
           </h2>
 
-          <div className="mt-6 grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
+          <div className="mt-6 grid grid-cols-2  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
             {data.map((product) => (
               <div
                 key={product.id}

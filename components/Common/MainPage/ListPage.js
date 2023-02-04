@@ -5,11 +5,11 @@ import {
   recentDubTen,
   recentChTen,
 } from "../../../store/anime/animeaction";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 const ListPage = () => {
   const dispatch = useDispatch();
-  const router = useRouter()
+  const router = useRouter();
   const selector = useSelector((pre) => pre.anime);
   const [jap, setJap] = useState([]);
   const [dub, setDub] = useState([]);
@@ -33,97 +33,149 @@ const ListPage = () => {
     }
   }, [selector]);
 
-  const handleClick=(animeid)=>{
-    router.push(`/watch/${animeid}`)
-  }
+  const handleClick = (animeid) => {
+    router.push(`/watch/${animeid}`);
+  };
 
   return (
     <>
-      <div className="bg-white pt-[100px] pl-[25px] pr-[25px] bg-slate-700 ">
+      <div className="bg-white pt-[10px] pl-[25px] pr-[25px] bg-slate-700 ">
         <div className="mx-auto max-w-2xl    lg:max-w-7xl ">
-          <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:gap-x-3 2xl:gap-x-3">
+          <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:gap-x-3 2xl:gap-x-3">
             <div className="group relative">
-              <ul className="bg-white rounded-lg border border-gray-200 w-[100%] text-gray-900">
+              <ul className="bg-white rounded-lg border border-gray-200 w-[317px] text-gray-900">
                 <li className=" text-lg	 px-6 py-2 border-b border-gray-200 w-full rounded-t-lg font-bold  text-slate-100	 bg-yellow-600">
                   Japanese Sub Recent Release
                 </li>
-                {jap?.map((w ,i) => {
+                {jap?.map((w, i) => {
                   return (
-                    <li key={i} className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
-                      <div className="2xl:flex xl:flex  lg:flex justify-between	"  onClick={()=>handleClick(w.animeId)}>
+                    <li
+                      key={i}
+                      className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	"
+                    >
+                      <div className="	" onClick={() => handleClick(w.animeId)}>
                         <img
-                          className="h-[125px] flex-none w-[250px]  rounded-lg"
+                          className=" flex-none w-[250px] h-[340px]  rounded-lg"
                           src={w.animeImg}
                         />
 
-                        <h2>{`${w.animeTitle}    (${w.subOrDub})`}</h2>
+                        <h2 className="pt-2 text-blue-grey-800">{`${w.animeTitle}    (${w.subOrDub})`}</h2>
                       </div>
                     </li>
                   );
                 })}
 
                 {jap?.length > 0 && (
-                  <li className="px-6 py-2 w-full rounded-b-lg flex flex-row bg-slate-300	justify-end	 pr-[50px]" onClick={()=>{
-                    router.push('/episode/japsub')
-
-                  }}>
+                  <li
+                    className="px-6 py-2 w-full rounded-b-lg flex flex-row bg-slate-300	justify-end	 pr-[50px]"
+                    onClick={() => {
+                      router.push("/episode/japsub");
+                    }}
+                  >
                     <a> @ View More</a>
                   </li>
                 )}
               </ul>
             </div>
             <div className="group relative">
-              <ul className="bg-white rounded-lg border border-gray-200 w-[100%] text-gray-900">
+              <ul className="bg-white rounded-lg border border-gray-200  w-[317px]  text-gray-900">
                 <li className=" text-lg	 px-6 py-2 border-b border-gray-200 w-full rounded-t-lg font-bold  text-slate-100	 bg-yellow-600">
                   English Dub Recent Release
                 </li>
-                {dub?.map((w,i) => {
+                {dub?.map((w, i) => {
                   return (
-                    <li key={i} className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
-                      <div className="2xl:flex xl:flex  lg:flex justify-between	" onClick={()=>handleClick(w.animeId)}>
+                    <li
+                      key={i}
+                      className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	"
+                    >
+                      <div className="" onClick={() => handleClick(w.animeId)}>
                         <img
-                          className="h-[125px] flex-none w-[250px]  rounded-lg"
+                          className=" flex-none w-[250px]  h-[340px]  rounded-lg"
                           src={w.animeImg}
                         />
 
-                        <h2>{`${w.animeTitle}    (${w.subOrDub})`}</h2>
+                        <h2 className="pt-2 text-blue-grey-800">{`${w.animeTitle}    (${w.subOrDub})`}</h2>
                       </div>
                     </li>
                   );
                 })}
                 {dub?.length > 0 && (
-                  <li className="px-6 py-2 w-full rounded-b-lg flex flex-row bg-slate-300	justify-end	 pr-[50px]" onClick={()=>{
-                    router.push('/episode/dub')
-                  }}>
+                  <li
+                    className="px-6 py-2 w-full rounded-b-lg flex flex-row bg-slate-300	justify-end	 pr-[50px]"
+                    onClick={() => {
+                      router.push("/episode/dub");
+                    }}
+                  >
                     <a> @ View More</a>
                   </li>
                 )}
               </ul>
             </div>
             <div className="group relative">
-              <ul className="bg-white rounded-lg border border-gray-200 w-[100%] text-gray-900">
+              <ul className="bg-white rounded-lg border border-gray-200  w-[317px]  text-gray-900">
                 <li className=" text-lg	px-6 py-2 border-b border-gray-200 w-full rounded-t-lg font-bold  text-slate-100	 bg-yellow-600">
                   Chinese Dub Recent Release
                 </li>
 
-                {ch?.map((w,i) => {
+                {ch?.map((w, i) => {
                   return (
-                    <li key={i}  className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	">
-                      <div className="2xl:flex xl:flex  lg:flex justify-between" onClick={()=>handleClick(w.animeId)}>
+                    <li
+                      key={i}
+                      className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	"
+                    >
+                      <div className="" onClick={() => handleClick(w.animeId)}>
                         <img
-                          className="h-[125px] flex-none w-[250px]  rounded-lg"
+                          className=" flex-none w-[250px]  h-[340px] rounded-lg"
                           src={w.animeImg}
                         />
 
-                        <h2>{`${w.animeTitle}    (${w.subOrDub})`}</h2>
+                        <h2 className="pt-2 text-blue-grey-800">{`${w.animeTitle}    (${w.subOrDub})`}</h2>
                       </div>
                     </li>
                   );
                 })}
                 {ch?.length > 0 && (
-                  <li className="px-6 py-2 w-full rounded-b-lg flex flex-row bg-slate-300	justify-end	 pr-[50px]" onClick={()=>{
-                    router.push('/episode/chsub')
-                  }}>
+                  <li
+                    className="px-6 py-2 w-full rounded-b-lg flex flex-row bg-slate-300	justify-end	 pr-[50px]"
+                    onClick={() => {
+                      router.push("/episode/chsub");
+                    }}
+                  >
+                    <a> @ View More</a>
+                  </li>
+                )}
+              </ul>
+            </div>
+            <div className="group relative">
+              <ul className="bg-white rounded-lg border border-gray-200 w-[317px] text-gray-900">
+                <li className=" text-lg	 px-6 py-2 border-b border-gray-200 w-full rounded-t-lg font-bold  text-slate-100	 bg-yellow-600">
+                  Japanese Sub Recent Release
+                </li>
+                {jap?.map((w, i) => {
+                  return (
+                    <li
+                      key={i}
+                      className="px-6 py-2 border-b border-gray-200 w-full bg-slate-300	 cursor-pointer	"
+                    >
+                      <div className="	" onClick={() => handleClick(w.animeId)}>
+                        <img
+                          className=" flex-none w-[250px]  h-[340px]  rounded-lg"
+                          src={w.animeImg}
+                        />
+
+                        <h2 className="pt-2 text-blue-grey-800">{`${w.animeTitle}    (${w.subOrDub})`}</h2>
+                      </div>
+                    </li>
+                  );
+                })}
+
+                {jap?.length > 0 && (
+                  <li
+                    className="px-6 py-2 w-full rounded-b-lg flex flex-row bg-slate-300	justify-end	 pr-[50px]"
+                    onClick={() => {
+                      router.push("/episode/japsub");
+                    }}
+                  >
                     <a> @ View More</a>
                   </li>
                 )}

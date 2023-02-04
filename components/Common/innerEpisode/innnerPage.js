@@ -120,7 +120,7 @@ const SectionPage = ({ id, type }) => {
   };
   return (
     <>
-      <div className="bg-white h-full  2xl:pt-[30px] xl:pt-[30px] lg:pt-[30px]  border-yellow-500 	 border-2 bg-slate-700 ">
+      <div className="bg-white h-full  2xl:pt-[30px] xl:pt-[30px] lg:pt-[30px]  	  bg-slate-700 ">
         <div className="mx-auto max-w-2xl    lg:max-w-7xl 	 ">
           <h2 className="text-2xl flex w-full justify-center font-bold tracking-tight text-slate-100 w-full	lg:pt-[10px] xl:pt-[10px] 2xl:pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
             {type == "japsub"
@@ -136,28 +136,28 @@ const SectionPage = ({ id, type }) => {
               : "Top Anime "}
           </h2>
 
-          <div className="mt-6 h-full grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
-            {loading ? (
-              <div className="flex w-full h-screen justify-center flex-row pt-[50%] xl:ml-[50%] 2xl:ml-[50%] lg:ml-[50%] 2xl:pb-[10px] xl:pb-[10px] lg:pb-[10px]">
-                <Audio
-                  height="80"
-                  width="80"
-                  radius="9"
-                  color="green"
-                  ariaLabel="loading"
-                  wrapperStyle
-                  wrapperClass
-                />
-              </div>
-            ) : (
-              <>
+          {loading ? (
+            <div className="flex w-full h-screen justify-center flex-row pt-[50%] xl:ml-[50%] 2xl:ml-[50%] lg:ml-[50%] 2xl:pb-[10px] xl:pb-[10px] lg:pb-[10px]">
+              <Audio
+                height="80"
+                width="80"
+                radius="9"
+                color="green"
+                ariaLabel="loading"
+                wrapperStyle
+                wrapperClass
+              />
+            </div>
+          ) : (
+            <>
+              <div className="mt-6 h-full grid grid-cols-2  ml-[25px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
                 {data.map((product) => (
                   <div
                     key={product.id}
                     className="group relative"
                     onClick={() => handleClick(product.animeId)}
                   >
-                    <div className="min-h-80 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+                    <div className="min-h-200 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                       <img
                         src={product.animeImg}
                         alt={product.animeId}
@@ -182,12 +182,12 @@ const SectionPage = ({ id, type }) => {
                     </div>
                   </div>
                 ))}
-              </>
-            )}
-          </div>
+              </div>
+            </>
+          )}
 
           {!loading && (
-            <div class="flex justify-end	 mr-[10px] mb-[20px] mycsscheck">
+            <div class="flex justify-end	 mr-[10px] mt-[10px] mycsscheck">
               <Pagination
                 current={page}
                 defaultPageSize={20}

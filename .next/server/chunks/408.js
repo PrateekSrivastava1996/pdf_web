@@ -156,7 +156,7 @@ const topAirAction = ()=>async (dispatch)=>{
                 type: animeConstant/* TOPAIRLOADING */.ap
             });
             let res = await utils_axios.get(`/top-airing`);
-            const slicedArray = res?.data?.slice(0, 3);
+            const slicedArray = res?.data?.slice(0, 4);
             dispatch({
                 type: animeConstant/* TOPAIRTHEE */.cu,
                 payload: slicedArray
@@ -288,7 +288,7 @@ const moviesTen = ()=>async (dispatch)=>{
                 type: animeConstant/* LOADING */.br
             });
             let res = await utils_axios.get(`/anime-movies/?page=1`);
-            const slicedArray = res?.data?.slice(0, 3);
+            const slicedArray = res?.data?.slice(0, 4);
             dispatch({
                 type: animeConstant/* MOVIESTEN */.cU,
                 payload: slicedArray
@@ -317,7 +317,7 @@ const popularTen = ()=>async (dispatch)=>{
                 type: animeConstant/* LOADING */.br
             });
             let res = await utils_axios.get(`/popular/?page=1`);
-            const slicedArray = res?.data?.slice(0, 3);
+            const slicedArray = res?.data?.slice(0, 4);
             dispatch({
                 type: animeConstant/* POPULARTEN */.Jq,
                 payload: slicedArray

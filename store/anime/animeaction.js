@@ -35,7 +35,7 @@ export const topAirAction = () => async (dispatch) => {
       type: TOPAIRLOADING,
     });
     let res = await axios.get(`/top-airing`);
-    const slicedArray = res?.data?.slice(0, 3);
+    const slicedArray = res?.data?.slice(0, 4);
     dispatch({
       type: TOPAIRTHEE,
       payload: slicedArray,
@@ -177,7 +177,7 @@ export const moviesTen = () => async (dispatch) => {
       type: LOADING,
     });
     let res = await axios.get(`/anime-movies/?page=1`);
-    const slicedArray = res?.data?.slice(0, 3);
+    const slicedArray = res?.data?.slice(0, 4);
     dispatch({
       type: MOVIESTEN,
       payload: slicedArray,
@@ -207,7 +207,7 @@ export const popularTen = () => async (dispatch) => {
       type: LOADING,
     });
     let res = await axios.get(`/popular/?page=1`);
-    const slicedArray = res?.data?.slice(0, 3);
+    const slicedArray = res?.data?.slice(0, 4);
     dispatch({
       type: POPULARTEN,
       payload: slicedArray,
