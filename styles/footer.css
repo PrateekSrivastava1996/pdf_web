@@ -1,0 +1,25 @@
+.footermain {
+  background-color: rgb(51 65 85) !important;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  margin-top: 22px;
+
+}
+.footermainDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+.copyyear {
+  color: darkgray;
+}
+.yearname {
+  padding-left: 15px;
+}
+.forpaddingfooter {
+  padding-left: 5px;
+}
+.companyname {
+  font-weight: bold;
+}

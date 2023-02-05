@@ -1,4 +1,18 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import './navbar.css';
+@import './footer.css';
+@import './imgcompresser.css';
+@import './imgcompress.css';
+
+* {
+    margin: 0;
+}
+.main_app_component{
+    margin: 0;
+    display: flex;
+    min-height: 90vh;
+    flex-direction: column;
+}
+
+
+
 

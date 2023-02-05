@@ -1,10 +1,6 @@
 {
-  "/_error": "pages/_error.js",
   "/_app": "pages/_app.js",
-  "/api/hello": "pages/api/hello.js",
-  "/": "pages/index.html",
-  "/episode/[type]": "pages/episode/[type].html",
-  "/watch/[id]": "pages/watch/[id].html",
+  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/img-compresser": "pages/img-compresser.js"
 }

@@ -1,0 +1,51 @@
+.imgcompresmaindiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.inpfilecompresss::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.inpfilecompresss::file-selector-button:hover {
+  background: #0d45a5;
+}
+.spancompress {
+  border: 2px solid;
+  padding: 7px;
+  border-radius: 15px;
+}
+.imgSpancompreser {
+  padding-top: 12px;
+}
+.buttoncompress {
+  border: none;
+  background: #084cdf;
+  padding: 17px 55px;
+  border-radius: 22px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  font-size: 18px;
+}
+.button_compress_css_span {
+  padding-top: 30px;
+}
+.main_Heading_compress{
+  padding-top: 11px;
+  padding-bottom: 16px;
+}
+
+
+
+
+
+

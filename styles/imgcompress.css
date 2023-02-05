@@ -1,0 +1,44 @@
+.div_img_compress_main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 20px;
+}
+.compresser_inner_span {
+  display: flex;
+  flex-direction: row;
+}
+
+.span_new_img_heading {
+  font-weight: bold;
+  padding-right: 18px;
+}
+
+.imgcompresmaindiv_main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .button_compress_css_span_main {
+    padding-top: 30px;
+  }
+  .buttoncompress_main {
+    border: none;
+    background: #084cdf;
+    padding: 17px 55px;
+    border-radius: 22px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    font-size: 18px;
+  }
+
+
+
+
+
+
+
+

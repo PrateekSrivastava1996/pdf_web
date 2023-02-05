@@ -1,15 +1,12 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import {CrouselPage ,SectionPage ,ListPage ,MainSideBar , SectionOne, SectionTwo } from '../components/Common/MainPage/index'
-
+import Head from "next/head";
+import Image from "next/image";
+import { useState } from "react";
+import {MainPage} from '../components/index'
 export default function Home() {
+
   return (
     <>
-    <CrouselPage/>
-    <SectionPage />
-    <SectionOne />
-    <SectionTwo />
-    <ListPage />
+      <MainPage />
     </>
-  )
+  );
 }

@@ -1,126 +1,120 @@
 import React, { useEffect, useState } from "react";
-import { UserOutlined } from "@ant-design/icons";
-import { AutoComplete, Input } from "antd";
-import MainBtnPage from "../MainPage/MainBtnPage";
 import { useRouter } from "next/router";
-import { searchAnime } from "../../../store/anime/animeaction";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
-import { NodeNextRequest } from "next/dist/server/base-http/node";
+import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import { imageList } from "../../../constant/navbar";
+import { Menu, SubMenu, Item } from "burger-menu";
 
-const renderTitle = (title, count) => (
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-    }}
-  >
-    {title}
-    <span>
-      <UserOutlined /> {count}
-    </span>
-  </div>
-);
-
-const optionsss = [
-  {
-    label: renderTitle("Libraries", 100),
-  },
-  {
-    label: renderTitle("Solutions", 100),
-  },
-  {
-    label: renderTitle("Articles", 100),
-  },
-];
-
+import LOGO from "../../../public/iconLogo.png";
 const Navbar = () => {
   const dispatch = useDispatch();
   const selector = useSelector((pre) => pre.anime);
   const router = useRouter();
-  const [dataOption, setDataOption] = useState([]);
-  useEffect(() => {
-    dispatch(searchAnime(""));
-  }, []);
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(true);
+  const closeMobileMenu = () => setClick(false);
 
-  useEffect(() => {
-    if (selector.searchanime?.length > 0) {
-      let datava = selector.searchanime?.map((e) => {
-        return {
-          label: renderTitle(e.animeTitle, e.status),
-          value: e.animeId,
-        };
-      });
-      setDataOption(datava);
-    } else {
-      const options = [
-        {
-          label: renderTitle("No data Found", 0),
-          value: "",
-        },
-      ];
-
-      setDataOption(options);
-    }
-  }, [selector]);
-
-  const handleOnchage = (e) => {
-    dispatch(searchAnime(e.target.value));
-  };
   const onSelect = (value) => {
     router.push(`/watch/${value}`);
   };
 
   return (
     <>
-      <div className="bg-slate-700">
-        <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 bg-slate-700">
-          <div class="container flex flex-wrap sm:justify-between  md:justify-between lg:justify-between xl:justify-between  2xl:justify-between items-center mx-auto ">
-            <span
-              class="flex items-center "
-              onClick={() => {
-                router.push("/");
-              }}
-            >
-              <span class="self-center text-white text-2xl font-semibold whitespace-nowrap cursor-pointer">
-                {/* My Anime */}
-                <Image
-                  src="/myanime-logo.png"
-                  alt="Picture of the author"
-                  width={215}
-                  height={55}
-                />
-              </span>
-            </span>
-
-            <div
-              class="w-auto md:block md:w-auto inpSearchbar"
-              id="navbar-default bg-slate-700"
-            >
-              <AutoComplete
-                class="focus:outline-none"
-                popupClassName="certain-category-search-dropdown"
-                dropdownMatchSelectWidth={100}
-                style={{
-                  width: 350,
-                }}
-                options={dataOption}
-                onSelect={onSelect}
-              >
-                <Input.Search
-                  size="large"
-                  placeholder="Search By Anime Name ..."
-                  onChange={(e) => {
-                    handleOnchage(e);
-                  }}
-                />
-              </AutoComplete>
-            </div>
+      <div className="header">
+        <div className="logo-nav">
+          <div className="logo-container">
+            <a href="#" className="header_ancher_tag">
+              <Image src={LOGO} alt="LOGO" width={300} height={200} />
+            </a>
           </div>
-        </nav>
-        {/* category Btn Here */}
-        {/* <MainBtnPage /> */}
+        </div>
+        <ul className="nav-options">
+          <li className="option">
+            <div class="dropdown">
+              <a href="#" className="header_ancher_tag dropbtn">
+                IMAGE
+              </a>
+
+              <div class="dropdown-content">
+                <a href="#">Reduce Image</a>
+                <a href="#">Resize Pixel Image</a>
+                <a href="#">Crop Image</a>
+                <a href="#">Convert Image</a>
+                <a href="#">Compress Image</a>
+                <a href="#">Mirror Image</a>
+                <a href="#">Rotate Image</a>
+                <a href="#">Background Remove</a>
+                <a href="#">Change To Black And White</a>
+              </div>
+            </div>
+          </li>
+          <li className="option">
+            <div class="dropdown">
+              <a href="#" className="header_ancher_tag dropbtn">
+                PDF
+              </a>
+
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
+          </li>
+          <li className="option">
+            <div class="dropdown">
+              <a href="#" className="header_ancher_tag dropbtn">
+                DOC
+              </a>
+
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div className="mobile-menu" onClick={handleClick}>
+          <>
+            {click ? (
+              <CloseOutlined className="menu-icon" />
+            ) : (
+              <MenuOutlined className="menu-icon" width={"200px"} />
+            )}
+          </>
+        </div>
       </div>
+      <Menu
+        className="burger-menu"
+        isOpen={click}
+        selectedKey={"entry"}
+        onClose={() => {
+          console.log("fkfkfkk");
+          setClick(false);
+        }}
+      >
+        <SubMenu title="IMAGE">
+          <Item itemKey={"notice"} text={"Reduce Size Image"}></Item>
+          <Item itemKey={"union"} text={"Resize Pixel Image"}></Item>
+          <Item itemKey={"union"} text={"Crop Image"}></Item>
+          <Item itemKey={"union"} text={"Convert Image"}></Item>
+          <Item itemKey={"union"} text={"Compress Image"}></Item>
+          <Item itemKey={"union"} text={"Mirror Image"}></Item>
+          <Item itemKey={"union"} text={"Rotate Image"}></Item>
+          <Item itemKey={"union"} text={"Background Remove"}></Item>
+          <Item itemKey={"union"} text={"Change To Black And White"}></Item>
+        </SubMenu>
+        <SubMenu title="PDF">
+          <Item itemKey={"notice"} text={"Link 1"}></Item>
+          <Item itemKey={"union"} text={"Link 2"}></Item>
+        </SubMenu>
+        <SubMenu title="DOC">
+          <Item itemKey={"notice"} text={"Link 1"}></Item>
+          <Item itemKey={"union"} text={"Link 2"}></Item>
+        </SubMenu>
+      </Menu>
     </>
   );
 };
