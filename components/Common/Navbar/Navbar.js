@@ -30,6 +30,7 @@ const Navbar = () => {
             </a>
           </div>
         </div>
+        
         <ul className="nav-options">
           <li className="option">
             <div class="dropdown">
