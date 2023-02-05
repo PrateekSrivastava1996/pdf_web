@@ -15,8 +15,9 @@ const Navbar = () => {
   const handleClick = () => setClick(true);
   const closeMobileMenu = () => setClick(false);
 
-  const onSelect = (value) => {
-    router.push(`/watch/${value}`);
+  const onChnageRouter = (value) => {
+    router.push(`/${value}`);
+    setClick(false);
   };
 
   return (
@@ -24,7 +25,7 @@ const Navbar = () => {
       <div className="header">
         <div className="logo-nav">
           <div className="logo-container">
-            <a href="#" className="header_ancher_tag">
+            <a href="/" className="header_ancher_tag">
               <Image src={LOGO} alt="LOGO" width={300} height={200} />
             </a>
           </div>
@@ -37,11 +38,10 @@ const Navbar = () => {
               </a>
 
               <div class="dropdown-content">
-                <a href="#">Reduce Image</a>
                 <a href="#">Resize Pixel Image</a>
                 <a href="#">Crop Image</a>
                 <a href="#">Convert Image</a>
-                <a href="#">Compress Image</a>
+                <a href="/img-compresser">Compress Image</a>
                 <a href="#">Mirror Image</a>
                 <a href="#">Rotate Image</a>
                 <a href="#">Background Remove</a>
@@ -91,16 +91,18 @@ const Navbar = () => {
         isOpen={click}
         selectedKey={"entry"}
         onClose={() => {
-          console.log("fkfkfkk");
           setClick(false);
         }}
+       onClick={(w)=>{
+        console.log(w.itemKey,'ddkdkd d djdjd djdjd dj')
+        onChnageRouter(w.itemKey)
+       }}
       >
         <SubMenu title="IMAGE">
-          <Item itemKey={"notice"} text={"Reduce Size Image"}></Item>
-          <Item itemKey={"union"} text={"Resize Pixel Image"}></Item>
+          <Item itemKey={"union"}  text={"Resize Pixel Image"}></Item>
           <Item itemKey={"union"} text={"Crop Image"}></Item>
           <Item itemKey={"union"} text={"Convert Image"}></Item>
-          <Item itemKey={"union"} text={"Compress Image"}></Item>
+          <Item itemKey={"img-compresser"} text={"Compress Image"}></Item>
           <Item itemKey={"union"} text={"Mirror Image"}></Item>
           <Item itemKey={"union"} text={"Rotate Image"}></Item>
           <Item itemKey={"union"} text={"Background Remove"}></Item>
