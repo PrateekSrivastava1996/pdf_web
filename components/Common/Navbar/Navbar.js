@@ -39,7 +39,7 @@ const Navbar = () => {
               </a>
 
               <div class="dropdown-content">
-                <a href="#">Resize Pixel Image</a>
+                <a href="/demoCompressorFile">Resize Image Pixel</a>
                 <a href="#">Crop Image</a>
                 <a href="#">Convert Image</a>
                 <a href="/img-compresser">Compress Image</a>

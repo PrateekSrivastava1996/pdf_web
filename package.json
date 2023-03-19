@@ -13,6 +13,7 @@
     "antd": "^5.1.7",
     "axios": "^0.27.2",
     "burger-menu": "^2.0.0",
+    "image-resize-compress": "^1.1.0",
     "jquery": "^3.6.1",
     "next": "12.3.1",
     "next-redux-wrapper": "^8.0.0",
